@@ -1,3 +1,28 @@
+###### วงเล็บโง่ๆ #######
+#x = input("Enter Input : ")
+#
+#x = list(x)
+#lst = []
+#lst_1 = []
+#lst2 = []
+#lst_2 = []
+#
+#for i in x:
+    
+#    if(i == '('):
+#        lst.append(i)
+#    if(i == '[' ):
+#        lst2.append(i)
+#    if(i == ')'):
+#        lst_1.append(i)
+#    if(i == ']' ):
+#        lst_2.append(i)
+    
+#need = abs( len(lst) - len(lst_1) ) + abs(len(lst2) - len(lst_2))
+#print(need)
+#if (need ==  0):
+#    print("Perfect ! ! !")
+
 ####### จานโง่ๆ #######
 # x = input("Enter Input : ").split(',')
 
