@@ -113,9 +113,6 @@
 #                             l = [int(self.lst.pop()),int(self.lst.pop())]
 #                             self.lst.append(int(self.operand[self.order.index(i)](l)))
                     
-                    
-              
-####### SOI full โง่ๆ #######
 #     def getValue(self):
 #         if(not self.Invalid):
 #             return  self.lst[-1:][0] if len(self.lst) > 0  else 0
@@ -129,12 +126,15 @@
 #         except ValueError:
 #             return False
 
+
 # print("* Stack Calculator *")
 # arg = input("Enter arguments : ")
 # machine = StackCalc()
 # machine.run(arg)
 # print(machine.getValue())
  
+
+####### SOI full โง่ๆ #######
 # print("******** Parking Lot ********")
 # x = input("Enter max of car,car in soi,operation : ").split() # [max,stack car,command,number of car]
 
