@@ -305,5 +305,9 @@ class IntervalTree:
         
         ptr = self.root
         while(ptr != None):
-            
+            if(ptr.interval - data <= 0):
+                ptr.interval = data
+                return ptr.index
+            else:
+                if()
 
