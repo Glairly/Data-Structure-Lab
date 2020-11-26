@@ -47,50 +47,52 @@
  
 # group = sorted(group)
 
-# def dfs(lst,graph):
-#     visited = []
-#     ans = []
-#     while(len(visited) < len(lst)):
-#         q = []
-#         for i in lst:
-#             if i not in visited:
-#                 q = [i]
-#                 break
+def bfs(lst,graph):
+    visited = []
+    ans = []
+    while(len(visited) < len(lst)):
+        q = []
+        for i in lst:
+            if i not in visited:
+                q = [i]
+                break
      
-#         while(len(q)):
-#             x = q.pop(0)
-#             if(x in visited):
-#                 continue
-#             ans.append(x)
-#             visited.append(x)
-#             for j in  sorted(graph[x]):
-#                 q.append(j)
+        while(len(q)):
+            x = q.pop(0)
+            if(x in visited):
+                continue
+            ans.append(x)
+            visited.append(x)
+            for j in  sorted(graph[x]):
+                q.append(j)
 
-#         # for j in (graph[x]):
-#         #     q.append(j)
-#     return ans
+        # for j in (graph[x]):
+        #     q.append(j)
+    return ans
 
-# def bfs(lst,graph):
-#     visited = []
-#     ans = []
-#     while(len(visited) < len(lst)):
-#         st = []
-#         for i in lst:
-#             if i not in visited:
-#                 st = [i]
-#                 break
-#         while(len(st)):
-#             x = st.pop()
-#             if(x in visited):
-#                 continue
-#             ans.append(x)
-#             visited.append(x)
-#             for j in sorted(graph[x],reverse=True):
-#                     st.append(j)
-#     return ans
+def dfs(lst,graph):
+    visited = []
+    ans = []
+    while(len(visited) < len(lst)):
+        st = []
+        for i in lst:
+            if i not in visited:
+                st = [i]
+                break
+        while(len(st)):
+            x = st.pop()
+            if(x in visited):
+                continue
+            ans.append(x)
+            visited.append(x)
+            for j in range(len(graph) - 1 , 0 , -1):
+                st.append(graph[j])
+            # for j in sorted(graph[x],reverse=True):
+            #         st.append(j)
+    return ans
 
-# print("Depth First Traversals :",*bfs(group,graph))
-# print("Bredth First Traversals :",*dfs(group,graph))
+# print("Depth First Traversals :",*dfs(group,graph))
+# print("Bredth First Traversals :",*bfs(group,graph))
  
 
 # 3
@@ -118,55 +120,55 @@
  
 # group = sorted(group)
 
-# class PriorityQueue:
+class PriorityQueue:
 
-#     def __init__(self,operator = lambda x,y : x < y ):
-#         self.list = []
-#         self.operator =  operator
+    def __init__(self,operator = lambda x,y : x < y ):
+        self.list = []
+        self.operator =  operator
 
-#     def insert(self,value):
-#         i = 0
-#         while( i < len(self.list) and self.operator(value,self.list[i])):
-#             i += 1
-#         self.list.insert(i,value)
+    def insert(self,value):
+        i = 0       
+        while( i < len(self.list) and self.operator(value,self.list[i])):
+            i += 1
+        self.list.insert(i,value)
     
-#     def pop(self):
-#         return self.list.pop(0)
+    def pop(self):
+        return self.list.pop(0)
     
-#     def __str__(self):
-#         s = ""
-#         for i in self.list:
-#             s += str(i) + " "
-#         return s
+    def __str__(self):
+        s = ""
+        for i in self.list:
+            s += str(i) + " "
+        return s
     
-#     def __len__(self):
-#         return len(self.list)
+    def __len__(self):
+        return len(self.list)
 
-# def dijkstra(lst,graph,src,des):
-#     visited = {}
-#     ans = PriorityQueue(lambda x,y: len(x[0]) >=  len(y[0]) or x[1] >=  y[1] )
-#     for i in lst:
-#         visited[i] = -1
-#     pq = PriorityQueue(lambda x,y: x[1] >= y[1])
-#     pq.insert([src,0,[src]])
+def dijkstra(lst,graph,src,des):
+    visited = {}
+    ans = PriorityQueue(lambda x,y: len(x[0]) >=  len(y[0]) or x[1] >=  y[1] )  #   [1,3] , 1] [ [1,2,3] , 3] , 
+    for i in lst:
+        visited[i] = -1
+    pq = PriorityQueue(lambda x,y: x[1] >= y[1])  # [ src , w , [] ]
+    pq.insert([src,0,[src]])
 
-#     while(len(pq)):
-#         x,w,l = pq.pop()
+    while(len(pq)):
+        x,w,l = pq.pop() 
          
-#         if(visited[x] != -1 and  w > visited[x]):
-#             continue
+        if(visited[x] != -1 and  w > visited[x]):
+            continue
         
-#         visited[x] = w
-#         if x == des:
-#            ans.insert([l,w])
-#            continue
-#         if(visited[des] != -1 and w >= visited[des]):
-#             continue
-#         for j in graph[x]:
-#             pq.insert( [ j[0] , j[1] + w , l + [j[0]]] )
-#         # for j in (graph[x]):
-#         #     q.append(j)
-#     return ans
+        visited[x] = w
+        if x == des:
+           ans.insert([l,w])
+           continue
+        if(visited[des] != -1 and w >= visited[des]):
+            continue
+        for j in graph[x]:
+            pq.insert( [ j[0] , j[1] + w , l + [j[0]]] )    
+        # for j in (graph[x]):
+        #     q.append(j)
+    return ans
 
 
 
@@ -240,3 +242,4 @@
 #     lst = list(filter(lambda x: len(x) == i,ans))
 #     for j in lst:
 #         print(" -> ".join(j))
+

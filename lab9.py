@@ -24,6 +24,8 @@ def swap(a,b):
 
 
 
+
+
 # inp = input("Enter Input : ").split()
 # inp = [int(i) for i in inp]
 
@@ -32,92 +34,92 @@ def swap(a,b):
 
 
 
-# def mergesort(list,left,right):
-#     if(left < right):
-#         mid = (left + right)//2
-#         mergesort(list,left,mid)
-#         mergesort(list,mid+1,right)
-#         merge(list,left,mid+1,right) 
+def mergesort(list,left,right):
+    if(left < right):
+        mid = (left + right)//2
+        mergesort(list,left,mid)
+        mergesort(list,mid+1,right)
+        merge(list,left,mid+1,right) 
 
-# def merge(list,left,mid,right):
-#     l = left
-#     r = mid
-#     newList = []
-#     while(l <= mid - 1 and r <= right ):
-#         data = ""
-#         if(list[l] < list[r]):
-#             data = list[l]
-#             l += 1
-#         else:
-#             data = list[r]
-#             r += 1
-#         newList.append(data)
+def merge(list,left,mid,right):
+    l = left
+    r = mid
+    newList = []
+    while(l <= mid - 1 and r <= right ):
+        data = ""
+        if(list[l] < list[r]):
+            data = list[l]
+            l += 1
+        else:
+            data = list[r]
+            r += 1
+        newList.append(data)
     
-#     while(l <= mid-1):
-#         newList.append(list[l])
-#         l+=1
-#     while(r <= right):
-#         newList.append(list[r])
-#         r+=1
+    while(l <= mid-1):
+        newList.append(list[l])
+        l+=1
+    while(r <= right):
+        newList.append(list[r])
+        r+=1
     
-#     co = 0
-#     for i in range(left,right + 1):
-#         list[i] = newList[co]
-#         co += 1
+    co = 0
+    for i in range(left,right + 1):
+        list[i] = newList[co]
+        co += 1
 
 # Unsigned Sort
-# lst = input("Enter Input : ").split()
-# lst = [int(i) for i in lst]
-# lst2  = []
-# dic =  {}
+lst = input("Enter Input : ").split()
+lst = [int(i) for i in lst]
+lst2  = []
+dic =  {}
 
-# for i in range(len(lst)):
-#     if(lst[i] < 0):
-#         dic[i] = lst[i]
-#     else:
-#         lst2.append(lst[i])
+for i in range(len(lst)):
+    if(lst[i] < 0):
+        dic[i] = lst[i]
+    else:
+        lst2.append(lst[i])
 
-# mergesort(lst2,0,len(lst2)-1)
-
-
-# for i in dic.keys():
-#     lst2.insert(i,dic[i])
-
-# print (*lst2)
-
-# def mergesort(list,left,right,reverse = False):
-#     if(left < right):
-#         mid = (left + right)//2
-#         mergesort(list,left,mid,reverse)
-#         mergesort(list,mid+1,right,reverse)
-#         merge(list,left,mid+1,right,reverse) 
+mergesort(lst2,0,len(lst2)-1)
 
 
-# def merge(list,left,mid,right,reverse):
-#     l = left
-#     r = mid
-#     newList = []
-#     while(l <= mid - 1 and r <= right ):
-#         data = ""
-#         if(list[l] < list[r] if not reverse else list[l] > list[r]):
-#             data = list[l]
-#             l += 1
-#         else:
-#             data = list[r]
-#             r += 1
-#         newList.append(data)
+for i in dic.keys():
+    lst2.insert(i,dic[i])
+
+print (*lst2)
+
+def mergesort(list,left,right,reverse = False):
+    if(left < right):
+        mid = (left + right)//2
+        mergesort(list,left,mid,reverse)
+        mergesort(list,mid+1,right,reverse)
+        merge(list,left,mid+1,right,reverse) 
+
+
+def merge(list,left,mid,right,reverse):
+    l = left
+    r = mid
+    newList = []
+    while(l <= mid - 1 and r <= right ):
+        data = ""
+        if(list[l] < list[r] if not reverse else list[l] > list[r]):
+            data = list[l]
+            l += 1
+        else:
+            data = list[r]
+            r += 1
+        newList.append(data)
     
-#     while(l <= mid-1):
-#         newList.append(list[l])
-#         l+=1
-#     while(r <= right):
-#         newList.append(list[r])
-#         r+=1
+    while(l <= mid-1):
+        newList.append(list[l])
+        l+=1
+    while(r <= right):
+        newList.append(list[r])
+        r+=1
     
-#     co = 0
-#     for i in range(left,right + 1):
-#         list[i] = newList[co]
-#         co += 1
+    co = 0
+    for i in range(left,right + 1):
+        list[i] = newList[co]
+        co += 1
 
 
 # somethindDrome 
